@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: teal;
+}
+
+/*********** HEADER ************/
+
+header {
+    font-family: 'Roboto Slab', serif;
+    background-color: black;
+    color: pink;
+    padding: 10px;
+    text-align: center;
+}
+
+header a {
+    color: gold;
+    text-decoration: none;
+    padding: 5px;
+}
+
+h1 {
+    margin: 0;
+}
