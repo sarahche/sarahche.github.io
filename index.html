@@ -1,7 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <title>Muddy Paws Adventure Gear</title>
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="a5_style.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+    <script src="main.js" type="text/javascript"></script>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div id="top">
+        <!-- Creates the header above the nav bar -->
+        <header> 
+            <div id = "shoppingCartCount"> 0 </div>
+            <div class = "logo">
+                <a href = "index.html">
+                <img src = "assets/logo.png" alt = "Logo" class = "logo"> 
+            </div>
+            <div class = "shoppingCartIcon">
+                <a href = "shoppingCart.html">
+                <img src = "assets/shopping-cart.png" alt = "Shopping Cart Icon" class = "shoppingCartIcon">
+            </div>
+            <div class = "profileIcon">
+                <img src = "assets/profile.png" alt = "Profile Icon" class = "profileIcon">
+            </div>
+            <button class = "searchBar"> Search </button>
+        </header>
+        <!-- Creates the navigation bar -->
+        <div class = "navBar">  
+            <nav>
+                <ul>
+                    <li> <a href="#"> New </a> </li>
+                    <li> <a href="productPage.html"> Products </a> </li>
+                    <li> <a href="#"> Services </a> </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Creates banner under nav bar -->
+        <div> 
+            <h3> <span class = "headerHighlight"> Get free shipping until March 2 with code <b> FREESHIP </b> </span></h3>
+        </div>
+    </div>
+     
+    <div class = "slideshow">
+            <img src = "assets/dog-beach.png" alt = "Dog on the Beach" class = "responsive"> 
+        <div class = "slideText"> <b> New <br> Products! </b> <br> <span class = "slideDesc"> <br> Snap up the best of new <br> products for your pet! </span> </div>
+        <button class = "slideShopButton"> Shop Now </button>
+    </div>
+    <!-- Creates the banner under the slideshow -->
+    <div class = "homeBottom">
+        <div class = "circleA"> </div>
+        <div class = "circleB"> </div>
+        <div class = "circleC"> </div>
+        <div class = "circleD"> </div>
+        <div class = "circleE"> </div>
+        <div class = "bottomText"> Everything your pet needs for a fun outdoor adventure! </div>
+    </div>
 </body>
+
 </html>

@@ -36,6 +36,20 @@ h3 {
     background-color: #ACF5B8;
 }
 
+#shoppingCartCount {
+    float: right;
+    margin-top: 40px;
+    right: 60px;
+    position: absolute;
+    background: #63C172;
+    color: black;
+    border-radius: 75%;
+    width: 22px;
+    height: 22px;
+    z-index: 1000;
+
+}
+
 /*********** Home Page ************/
 
 .logo {
@@ -51,6 +65,7 @@ h3 {
     float: right;
     margin-top: 21px;
     margin-right: 5%;
+    position: relative;
 }
 
 .profileIcon {
@@ -59,6 +74,7 @@ h3 {
     float: right;
     margin-top: 17px;
     margin-right: -10%;
+    position: relative;
 }
 
 .searchBar {
@@ -368,7 +384,7 @@ nav a {
 }
 
 .image {
-  box-shadow: 0.5px 1px 1px 0.5px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0.5px 1px 1px 0.5px rgba(0, 0, 0, 0.2); */
   width: 150px;
   height: 100px;
 }
@@ -382,8 +398,8 @@ nav a {
 }
 
 .imageMain img {
-    width: 120%;
-    height: 100%;
+    /* width: 550px;
+    height: 600px; */
     margin-left: -50px;
 }
 
@@ -449,3 +465,226 @@ nav a {
     border-radius: 12px;
 }
 
+.itemMinusProductDetails {
+    border-radius: 10px;
+
+    width:21px;
+    height:21px;
+    background-color: white;
+    border-color: #787878;
+    margin-left: -50px;
+}
+
+.number p {
+    background-color: #F3F3F3;
+    border: none;
+    width:21px;
+    height:21px;
+    border-radius: 5px;
+    float: left;
+    margin-left: 25px;
+    margin-top: -0px;
+    text-align: center;
+    justify-content: center;
+}
+
+.itemPlusProductDetails {
+    border-radius: 15px;
+    margin-left: 30px;
+    width:22px;
+    height:22px;
+    background-color: white;
+    border-color: #787878;
+
+}
+
+/*********** Shopping Cart Page Structure ************/
+
+.itemContainer {
+    display: grid;
+    max-width: 1100px;
+    position: relative;
+    margin: auto;
+    grid-gap: 10px;
+    grid-template-areas: "itemList cartDetails";
+    grid-template-columns: 700px 400px; 
+    grid-template-rows: 600px;
+    border: 1px;
+    top: 30px;
+}
+
+/*********** Shopping Cart Item Details ************/
+.itemList {
+    background-color: white;
+    border: 2px #E5E5E5 solid;
+    display: grid;
+    grid-template: repeat(2, 30%) / 1fr;
+    grid-gap: -50px;
+    position: relative;
+    justify-items: center;
+    justify-content: center; 
+    align-items: stretch;
+    grid-auto-rows: 500px;
+    grid-auto-flow: dense;
+
+}
+
+.cartDetails {
+    background-color: #E5E5E5;
+    border: green;
+}
+
+.listItem {
+    background-color: #E5E5E5;
+    color: black;
+    border-radius: 15px;
+    width: 90%;
+    height: 150px;
+    margin-top: -130px;
+    margin-left: : 22px;
+    margin-right: 20px;
+}
+
+.listItem img {
+    width: auto;
+    height: 80%;
+    margin: 12px;
+}
+
+.shoppingCartHeader p {
+    margin-left: 200px;
+    left: 100px;
+    width: 250px;
+    font-weight: bold;
+    text-align: left;
+
+}
+
+.itemName {
+    margin-left: 150px;
+    margin-top: -130px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+}
+
+.shoppingCartType {
+    margin-left: 150px;
+    margin-top: -10px;
+    font-size: 12px;
+    text-align: left;
+}
+
+.shoppingCartHeader {
+    text-align: left;
+    margin-top: 14px;
+    margin-left: -500px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #3C3C3C;
+}
+
+.itemMinus {
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 150px;
+    width:21px;
+    height:21px;
+    background-color: white;
+    border-color: #787878;
+}
+
+.itemNum {
+    background-color: white;
+    border: none;
+    width:21px;
+    height:21px;
+    border-radius: 5px;
+}
+
+.itemPlus {
+    border-radius: 15px;
+    margin-top: 20px;
+    width:22px;
+    height:22px;
+    background-color: white;
+    border-color: #787878;
+}
+
+.shoppingCartItemPrice {
+    margin-left: 550px;
+    margin-top: -95px;
+}
+
+.shoppingCartRemove {
+    margin-top: 80px;
+    margin-left: 555px;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+/*********** Shopping Cart Price Details ************/
+
+
+.cartSubHeadings {
+    margin-top: 15px;
+    margin-left: 25px;
+    color: #3C3C3C;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.cartPriceDetails {
+    margin-top: -110px;
+    margin-right: 20px;
+    color: #3C3C3C;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: right;
+    font-weight: 1000 !important; 
+}
+
+.line {
+    border-bottom: 2px solid #ADADAF;
+    display: block;
+}
+
+.cartTotal {
+    margin-top: 15px;
+    margin-left: 22px;
+    font-size: 24px;
+}
+
+.totalPrice {
+    margin-top: -50px;
+    margin-left: 325px;
+    font-size: 22px;
+}
+
+.promoCode {
+    background-color: white;
+    border: none;
+    color: #787878;
+    padding: 8px;
+    padding-right: 24%;
+    margin-top: 0%;
+    margin-left: 20px;
+    font-size: 100%;
+    border-radius: 12px;
+    position: absolute;
+}
+
+.checkout {
+    margin-top: 350px;
+    margin-left: 100px;
+    padding: 8px;
+    background-color: #63C172;
+    color: black;
+    height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 15px;
+    font-size: 22px;
+    text-align: center;
+    justify-content: center;
+}
