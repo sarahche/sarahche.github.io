@@ -72,7 +72,6 @@ function onClickAddCart() {
 		sessionStorage.setItem("shoppingCartCount", JSON.stringify(shoppingCartCount));
 	} else {
 		sessionStorage.setItem("shoppingCartCount", 0);
-		console.log("elsesecond", shoppingCartCount);}
   document.getElementById("shoppingCartCount").innerHTML = shoppingCartCount;
   setItems();
 } 
