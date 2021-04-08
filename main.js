@@ -7,8 +7,7 @@ function onload() {
 		sessionStorage.setItem("shoppingCartCount", JSON.stringify(shoppingCartCount));
 	} else {
 		let shoppingCartCount = 0;
-		sessionStorage.setItem("shoppingCartCount", 0);
-		console.log("elsesecond", shoppingCartCount);}
+		sessionStorage.setItem("shoppingCartCount", 0);}
 	document.getElementById("shoppingCartCount").textContent = shoppingCartCount;
 }
 
@@ -71,8 +70,7 @@ function onClickAddCart() {
   if (shoppingCartCount) {
 		sessionStorage.setItem("shoppingCartCount", JSON.stringify(shoppingCartCount));
 	} else {
-		sessionStorage.setItem("shoppingCartCount", 0);
-		console.log("elsesecond", shoppingCartCount);}
+		sessionStorage.setItem("shoppingCartCount", 0);}
   document.getElementById("shoppingCartCount").innerHTML = shoppingCartCount;
   setItems();
 } 
