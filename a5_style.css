@@ -681,9 +681,18 @@ nav a {
     font-size: 24px;
 }
 
+.subtotalPrice {
+    margin-top: -100px;
+    margin-right: 20px;
+    font-size: 14px;
+    float: right;
+    
+}
+
 .totalPrice {
+
     margin-top: -50px;
-    margin-left: 325px;
+    margin-left: 340px;
     font-size: 22px;
 }
 

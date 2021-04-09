@@ -1,4 +1,5 @@
 
+// onload functions
 function onloadProducts() {
 	var shoppingCartCount = sessionStorage.getItem("shoppingCartCount");
 	var selectedProductinCart = null;
@@ -10,7 +11,6 @@ function onloadProducts() {
 		var shoppingCartCount = 0;
 		sessionStorage.setItem("shoppingCartCount", 0);}
 	document.getElementById("shoppingCartCount").textContent = shoppingCartCount;
-	selectedProduct = products[document.colorDropdown.color.options[document.colorDropdown.color.selectedIndex].value];
 	var cartCost = sessionStorage.getItem("sumCost");
 	if (cartCost == null) {
 		let sumCost = JSON.stringify(0);
@@ -19,6 +19,7 @@ function onloadProducts() {
 		
 	}
 	displayCart();
+	cartDetailsSetter();
 }
 
 function onloadCart() {
@@ -29,11 +30,12 @@ function onloadCart() {
 		sessionStorage.setItem("shoppingCartCount", JSON.stringify(shoppingCartCount));
 	} else {}
 	document.getElementById("shoppingCartCount").textContent = shoppingCartCount;
-    console.log ("onload");
+    console.log ("cartonload");
 	displayCart();
+	cartDetailsSetter();
 }
 
-// To updated images from dropdown options 
+// Setting images and sizes
 var imageList = [
   "assets/catharnessstrawberry.png",
   "assets/catharnessblack.png",
@@ -76,7 +78,7 @@ var currentColor = "strawberry"
 var currentSize = "tiny"
 
 
-// Changes main product image
+// Changes main product image and size
 function switchImage() {
     document.mainProductImg.src = imageList[document.colorDropdown.color.options[document.colorDropdown.color.selectedIndex].value];
     var chosenColor = products[document.colorDropdown.color.options[document.colorDropdown.color.selectedIndex].value].tag;
@@ -90,10 +92,11 @@ function switchSize () {
 	console.log(currentSize);
 }
 
-// To allow user to change number of items 
+// To allow user to change number of items in product details
 var itemCount = 1
 function onClickPlus() {
   itemCount += 1;
+  console.log(itemCount);
   document.getElementById("itemCount").textContent = itemCount;
 }
 
@@ -117,6 +120,7 @@ function onClickAddCart() {
   totalCost();
 } 
 
+// Adds item to cart
 
 function setItems() {
 	selectedProduct = products[document.colorDropdown.color.options[document.colorDropdown.color.selectedIndex].value];
@@ -132,7 +136,7 @@ function setItems() {
 		cartItems[selectedProduct.tag].inCart += itemCount;
 	} 
 	else {
-		selectedProduct.inCart = 1;
+		selectedProduct.inCart = itemCount;
 		cartItems = {
 		[selectedProduct.tag]: selectedProduct
 	};
@@ -143,6 +147,8 @@ function setItems() {
 	console.log(allCartProducts);
 
 }
+
+// Calculates total cost
 
 function totalCost () {
 	selectedProduct = products[document.colorDropdown.color.options[document.colorDropdown.color.selectedIndex].value];
@@ -162,25 +168,39 @@ function totalCost () {
 	
 }
 
-function removeItem() {
-	console.log('check removing item', this);
-	//sessionStorage.removeItem("strawberry");
-	//location.reload();
+// Removes item, changes cart number, and changes total price
+
+function removeItem(color) {
+	let cartItems = sessionStorage.getItem("allCartProducts");
+	cartItems = JSON.parse(cartItems);
+	var shoppingCartCount = sessionStorage.getItem("shoppingCartCount");
+  	shoppingCartCount = parseInt(shoppingCartCount);
+  	var cartCost = sessionStorage.getItem("sumCost");
+  	cartCost = parseInt(cartCost);
+	for (const [key, value] of Object.entries(cartItems)) {
+		if (color == key) {
+			shoppingCartCount -= cartItems[key].inCart;
+			cartCost -= cartItems[key].price * cartItems[key].inCart;
+			console.log(cartItems);
+			sessionStorage.setItem("shoppingCartCount", shoppingCartCount);
+			sessionStorage.setItem("sumCost", cartCost);
+			delete cartItems[key];
+		}
+}
+	var allCartProducts = JSON.stringify(cartItems);
+	sessionStorage.setItem("allCartProducts", JSON.stringify(cartItems));
+	location.reload();
 }
 
-// Cart Page 
+// Shows Cart Page 
 
 function displayCart() {
 	let cartItems = sessionStorage.getItem("allCartProducts");
 	cartItems = JSON.parse(cartItems);
-	console.log('displayCart');
 	var productContainer = document.querySelector(".itemList"); 
-	console.log('productcontainer', productContainer);
 	if (cartItems && productContainer) {
-		console.log('running');
 		productContainer.innerHTML = '';
 		Object.values(cartItems).map(item => {
-			console.log("item", item);
 			productContainer.innerHTML += `
 			<div class = "listItem ${item.tag}">
 				<p class = "shoppingCartType"> 
@@ -190,12 +210,26 @@ function displayCart() {
 				<button class = "itemMinus"> - </button>
                     <button class = "itemNum"> ${item.inCart} </button>
                     <button class = "itemPlus"> + </button>
-                    <p class = "shoppingCartRemove ${item.tag}" onclick = "removeItem()"> Remove </p>
+                    <button class = "shoppingCartRemove" name = "${item.tag}" onclick = removeItem(this.getAttribute("name"))> Remove </button>
                     <p class = "shoppingCartItemPrice" > $20.00 </p>
 			`
 		});
 	}
 
+}
+
+function cartDetailsSetter() {
+	var priceContainer = document.querySelector(".totalPrice"); 
+	var subPrice = document.querySelector(".subtotalPrice");
+	var cartCost = sessionStorage.getItem("sumCost");
+	console.log(priceContainer);
+	if (priceContainer != null) { 
+		console.log ('its null');
+		priceContainer.innerHTML = parseInt(cartCost) + 6;
+		}
+	if (subPrice != null) {
+		subPrice.innerHTML = cartCost;
+	}
 }
 
 
