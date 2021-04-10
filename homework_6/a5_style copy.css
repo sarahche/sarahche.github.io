@@ -524,7 +524,7 @@ nav a {
     justify-items: center;
     justify-content: center; 
     align-items: stretch;
-    grid-auto-rows: 500px;
+    
     grid-auto-flow: dense;
 
 }
@@ -540,15 +540,27 @@ nav a {
     border-radius: 15px;
     width: 90%;
     height: 150px;
-    margin-top: -130px;
+    margin-top: 20px;
     margin-left: : 22px;
     margin-right: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .listItem img {
-    width: auto;
-    height: 80%;
+    width: 100px;
+    height: 75%;
     margin: 12px;
+    margin-top: 30px;
+    margin-left: -125px;
+}
+
+.itemType {
+    display: float;
+    margin-right: 400px;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 12px;
 }
 
 .shoppingCartHeader p {
@@ -561,11 +573,11 @@ nav a {
 }
 
 .itemName {
-    margin-left: 150px;
-    margin-top: -130px;
+    float: right;
+    position: absolute;
+    margin-left: -120px;
     font-weight: bold;
     font-size: 18px;
-    text-align: left;
 }
 
 .shoppingCartType {
@@ -585,35 +597,46 @@ nav a {
 }
 
 .itemMinus {
+    float: right;
+    position: absolute;
     border-radius: 10px;
-    margin-top: 20px;
-    margin-left: 150px;
     width:21px;
     height:21px;
     background-color: white;
     border-color: #787878;
+    margin-left: -300px;
+    margin-top: 100px;
 }
 
 .itemNum {
+    float: right;
+    position: absolute;
     background-color: white;
     border: none;
     width:21px;
     height:21px;
     border-radius: 5px;
+    margin-left: -250px;
+    margin-top: 100px;
 }
 
 .itemPlus {
+    float: right;
+    position: absolute;
     border-radius: 15px;
-    margin-top: 20px;
     width:22px;
     height:22px;
     background-color: white;
     border-color: #787878;
+    margin-left: -200px;
+    margin-top: 100px;
 }
 
 .shoppingCartItemPrice {
     margin-left: 550px;
-    margin-top: -95px;
+    margin-top: 25px;
+    float: right;
+    position: absolute;
 }
 
 .shoppingCartRemove {
@@ -621,6 +644,9 @@ nav a {
     margin-left: 555px;
     font-size: 12px;
     text-decoration: underline;
+    float: right;
+    position: absolute;
+    margin-top: 125px;
 }
 
 /*********** Shopping Cart Price Details ************/
@@ -655,9 +681,18 @@ nav a {
     font-size: 24px;
 }
 
+.subtotalPrice {
+    margin-top: -100px;
+    margin-right: 20px;
+    font-size: 14px;
+    float: right;
+    
+}
+
 .totalPrice {
+
     margin-top: -50px;
-    margin-left: 325px;
+    margin-left: 340px;
     font-size: 22px;
 }
 

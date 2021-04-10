@@ -9,11 +9,11 @@
     <script src="main.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body onload = "onloadProducts()">
     <div id="top">
         <!-- Creates the header above the nav bar -->
         <header>
-            <div id = "shoppingCartCount"> 0 </div>
+            <div id = "shoppingCartCount"> </div>
             <div class = "logo">
                 <a href = "index.html">
                 <img src = "assets/logo.png" alt = "Logo" class = "logo"> 
@@ -67,16 +67,18 @@
             <div class = "brand"> Bond & Co. </div>
             <div class = "productName"> Bond & Co. Cat Harness</div>
             <div class = "reviewDetails"> ★★★★★ 48 Reviews </div> <br>
-            <div class = "price"> $29.95 </div>
+            <div class = "price"> $20.00 </div>
             <!-- Creates size dropdown menu -->
             <section class = "dropSize">
                 <label for = "size"> Size Chart </label> <br>
-                <select id = "size" name = "size"> 
+                <form method = "" action = "" name = "sizeDropdown">
+                <select id = "size" name = "size" s> 
                     <option value = "tiny"> Tiny </option>
                     <option value = "small"> Small </option>
                     <option value = "medium"> Medium </option>
                     <option value = "large"> Large </option>
                 </select>
+            </form>
             </section>
             <!-- Creats color dropdown menu -->
             <section class = "dropColor">
